@@ -23,6 +23,7 @@ export default defineType({
       title: 'Publish Date',
       type: 'date',
       validation: Rule => Rule.required(),
+      initialValue: new Date().toISOString().split('T')[0],
     }),
     defineField({
       name: 'category',
