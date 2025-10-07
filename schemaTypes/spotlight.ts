@@ -37,6 +37,13 @@ export default defineType({
       validation: Rule => Rule.required(),
     }),
     defineField({
+      name: 'publishedAt',
+      title: 'Publish Date',
+      type: 'date',
+      validation: Rule => Rule.required(),
+      initialValue: new Date().toISOString().split('T')[0],
+    }),
+    defineField({
       name: 'category',
       title: 'Spotlight Category',
       type: 'reference',
