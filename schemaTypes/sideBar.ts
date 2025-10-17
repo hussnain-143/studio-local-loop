@@ -6,6 +6,12 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'title',
+      title: 'SideBar Title',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    }),
+    defineField({
       name: 'sidebarimage',
       title: 'SideBar Image',
       type: 'image',
@@ -16,7 +22,7 @@ export default defineType({
     }),
     defineField({
       name: 'text',
-      title: 'SideBar Title',
+      title: 'SideBar Text',
       type: 'string',
       validation: Rule => Rule.required(),
     }),
@@ -26,6 +32,14 @@ export default defineType({
       type: 'url',
       description: 'URL where the button will redirect',
       validation: Rule => Rule.required(),
+    }),
+    defineField({
+      name: 'createdAt',
+      title: 'Created At',
+      type: 'datetime',
+      description: 'Date and time when the banner was created',
+      validation: Rule => Rule.required(),
+      initialValue: () => new Date().toISOString(),
     }),
   ],
 });

@@ -6,6 +6,12 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'title',
+      title: 'Banner Title',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    }),
+    defineField({
       name: 'bannerImage',
       title: 'Banner Image',
       type: 'image',
@@ -26,6 +32,14 @@ export default defineType({
       type: 'url',
       description: 'URL where the button will redirect',
       validation: Rule => Rule.required(),
+    }),
+    defineField({
+      name: 'createdAt',
+      title: 'Created At',
+      type: 'datetime',
+      description: 'Date and time when the banner was created',
+      validation: Rule => Rule.required(),
+      initialValue: () => new Date().toISOString(),
     }),
   ],
 });
