@@ -10,8 +10,8 @@ import topBanner from './topBanner';
 import middleBanner from './middleBanner';
 import sideBar from './sideBar';
 import shop from './shop';
-import directory from './directory';
-import directoryCategory from './directoryCategory';
+import business from './business';
+
 import contact from './contact';
 import advertise from './advertise';
 import user from './user';
@@ -32,10 +32,9 @@ export const schemaTypes = [
   middleBanner,
   sideBar,
   shop,
-  directory,
-  directoryCategory,
   contact,
   advertise,
+  business,
   user,
   stripeConfig,
   sociallinks,
