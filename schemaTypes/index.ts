@@ -18,6 +18,10 @@ import user from './user';
 import stripeConfig from './stripeConfig';
 import sociallinks from './sociallinks';
 
+import pricingPlan from './pricingPlan';
+
+import adPlacement from './adPlacement';
+
 
 export const schemaTypes = [
   siteLogo,
@@ -28,9 +32,6 @@ export const schemaTypes = [
   blogCategory,
   spotlight,
   spotlightCategory,
-  topBanner,
-  middleBanner,
-  sideBar,
   shop,
   contact,
   advertise,
@@ -38,4 +39,6 @@ export const schemaTypes = [
   user,
   stripeConfig,
   sociallinks,
+  pricingPlan,
+  adPlacement,
 ];
