@@ -1,123 +1,106 @@
-import { defineField, defineType } from 'sanity'
+import { defineType, defineField } from 'sanity'
 
 export default defineType({
-  name: 'business',
-  title: 'Business',
+  name: 'directoryListing',
+  title: 'Directory Listing',
   type: 'document',
 
   fields: [
-    // 🏢 Business Name
     defineField({
       name: 'name',
       title: 'Business Name',
       type: 'string',
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
 
-    // 🔗 Slug (auto from name)
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: {
         source: 'name',
-        maxLength: 100,
+        maxLength: 96,
       },
-      validation: Rule => Rule.required(),
     }),
 
-    // 🏷️ Category
     defineField({
       name: 'category',
       title: 'Category',
       type: 'string',
     }),
 
-    // 📝 Short Description
     defineField({
-      name: 'description',
+      name: 'blurb',
       title: 'Short Description',
       type: 'text',
     }),
 
-    // 🌐 Website URL
     defineField({
-      name: 'website',
-      title: 'Website URL',
+      name: 'url',
+      title: 'Website / External Link',
       type: 'url',
     }),
 
-    // 📧 Email
     defineField({
       name: 'email',
       title: 'Email',
       type: 'string',
     }),
 
-    // 📞 Phone
     defineField({
       name: 'phone',
       title: 'Phone',
       type: 'string',
     }),
 
-    // 🖼️ Logo or Image
     defineField({
       name: 'logo',
-      title: 'Logo / Image',
+      title: 'Logo Image',
       type: 'image',
       options: { hotspot: true },
     }),
 
-    // 🏅 Tier (Gold, Silver, Bronze)
+    defineField({
+      name: 'featureImage',
+      title: 'Feature Image (Hero Banner)',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+
     defineField({
       name: 'tier',
-      title: 'Tier',
+      title: 'Tier Level',
       type: 'string',
-      initialValue: 'bronze',
+      initialValue: 'basic',
       options: {
         list: [
-          { title: 'Gold (Featured)', value: 'gold' },
-          { title: 'Silver (Standard)', value: 'silver' },
-          { title: 'Bronze (Basic)', value: 'bronze' },
+          { title: 'Hero (Top Banner)', value: 'hero' },
+          { title: 'Pro (Large Highlight)', value: 'pro' },
+          { title: 'Standard', value: 'standard' },
+          { title: 'Basic', value: 'basic' },
+          { title: 'Free (Community)', value: 'free' },
         ],
         layout: 'radio',
       },
+      validation: (Rule) => Rule.required(),
     }),
 
-    // 🌟 Feature Image
     defineField({
-      name: 'featureImage',
-      title: 'Feature Image (Gold Banner)',
-      type: 'image',
-      options: { hotspot: true },
-    }),
-
-    // 🔗 Optional Banner Link
-    defineField({
-      name: 'adLinkUrl',
-      title: 'Banner Link URL (Optional)',
-      type: 'url',
-    }),
-
-    // ⚡ Active Toggle
-    defineField({
-      name: 'active',
+      name: 'isActive',
       title: 'Active',
       type: 'boolean',
       initialValue: true,
     }),
 
-    // 📅 Start / End Dates
     defineField({
-      name: 'startDate',
-      title: 'Start Date',
+      name: 'start',
+      title: 'Start Date (optional)',
       type: 'datetime',
     }),
 
     defineField({
-      name: 'endDate',
-      title: 'End Date',
+      name: 'end',
+      title: 'End Date (optional)',
       type: 'datetime',
     }),
   ],
@@ -125,7 +108,7 @@ export default defineType({
   preview: {
     select: {
       title: 'name',
-      subtitle: 'category',
+      subtitle: 'tier',
       media: 'logo',
     },
   },
