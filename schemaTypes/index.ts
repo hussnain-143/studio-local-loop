@@ -6,7 +6,7 @@ import blog from './blog';
 import blogCategory from './blogCategory';
 import spotlight from './spotlight';
 import spotlightCategory from './spotlightCategory';
-import topBanner from './topBanner';
+import shop from './shop';
 import business from './business';
 
 import contact from './contact';
