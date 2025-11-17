@@ -6,9 +6,6 @@ import blog from './blog';
 import blogCategory from './blogCategory';
 import spotlight from './spotlight';
 import spotlightCategory from './spotlightCategory';
-import topBanner from './topBanner';
-import middleBanner from './middleBanner';
-import sideBar from './sideBar';
 import shop from './shop';
 import business from './business';
 
